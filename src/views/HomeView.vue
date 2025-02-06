@@ -1,6 +1,6 @@
 <template>
   <div class="min-vh-100 bg-light">
-    <!-- Enhanced Navigation -->
+    <!--  Nav -->
     <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
       <div class="container">
         <a class="navbar-brand fs-3 fw-bold text-dark" href="#">
@@ -8,31 +8,31 @@
         </a>
         <div class="d-flex align-items-center gap-3">
           <!-- Show login button on smaller screens -->
-          <button class="btn btn-gradient-primary rounded-pill px-4 fw-semibold hover-lift d-lg-none">
+          <button  @click='navigateToLogin()' class="btn btn-gradient-primary rounded-pill px-4 fw-semibold hover-lift d-lg-none">
             Bejelentkezés <i class="bi bi-arrow-right ms-2"></i>
           </button>
           <a href="https://vasvari.hu" target="_blank" class="nav-link text-secondary hover-gradient d-none d-lg-block">
             Vasvári Weblap <i class="bi bi-box-arrow-up-right ms-1"></i>
           </a>
           <!-- Hide login button on smaller screens -->
-          <button class="btn btn-gradient-primary rounded-pill px-4 fw-semibold hover-lift d-none d-lg-block">
+          <button @click='navigateToLogin()' class="btn btn-gradient-primary rounded-pill px-4 fw-semibold hover-lift d-none d-lg-block">
             Bejelentkezés <i class="bi bi-arrow-right ms-2"></i>
           </button>
         </div>
       </div>
     </nav>
 
-    <!-- Enhanced Hero Section -->
+    <!-- Hero  -->
     <header class="gradient-section vh-md-auto">
       <div class="container">
         <div class="row align-items-center py-5 vh-100 ">
           <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
-            <h1 class="display-3 fw-bold mb-4 animate-slide-up">
+            <h1 class="display-3 fw-bold mb-4 animate-slide-up text-light" >
               Üdvözöllek a<br><span class="gradient-text">VasváriApp</span>-nál
             </h1>
             <p class="lead mb-5 fs-5 text-light">Egyszerű módja az órarend kezelésére</p>
             <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
-              <button class="btn btn-light btn-hover-grow rounded-pill px-5 py-3 fw-bold shadow-sm">
+              <button  @click='navigateToLogin()' class="btn btn-light btn-hover-grow rounded-pill px-5 py-3 fw-bold shadow-sm">
                 <i class="bi bi-box-arrow-in-right me-2"></i>Bejelentkezés
               </button>
               <button class="btn btn-outline-light btn-hover-grow rounded-pill px-5 py-3 fw-bold">
@@ -59,7 +59,7 @@
       </div>
     </header>
 
-    <!-- Enhanced Features Section -->
+    <!-- Features -->
     <section class="py-6 bg-white">
       <div class="container">
         <h2 class="text-center display-4 fw-bold mb-6 animate-slide-up">
@@ -79,11 +79,39 @@
         </div>
       </div>
     </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="gradient-section text-light py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">© 2025 VasváriApp. Minden jog fenntartva.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="https://vasvari.hu" target="_blank" class="text-light hover-gradient">
+              Vasvári Weblap <i class="bi bi-box-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
 import { CalendarSync, Newspaper, Info } from 'lucide-vue-next';
+import {useRouter} from "vue-router";
+
+const router = useRouter();
+
+const navigateToLogin = () => {
+  router.push('/login');
+
+}
 
 const features = [
   {
